@@ -1,0 +1,1 @@
+FROM docker.elastic.co/elasticsearch/kibana:7.0.0-alpha1
