@@ -24,8 +24,10 @@ RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
             --with-jpeg-dir=/usr/include \
     && docker-php-ext-install mbstring zip  gd pdo pdo_mysql mcrypt pcntl \
     && pecl install redis \
+    && pecl install mcrypt \
     && pecl install swoole-1.10.5 \
     && echo "extension=redis.so" > /usr/local/etc/php/conf.d/20-redis.ini \
+    && echo "extension=mcrypt.so" > /usr/local/etc/php/conf.d/20-mcrypt.ini \
     && echo "extension=swoole.so" > /usr/local/etc/php/conf.d/20-swoole.ini
     #&& echo "extension=php_pdo_mysql.so" > /usr/local/etc/php/conf.d/20-pdo_mysql.ini
     #&& docker-php-ext-enable redis
