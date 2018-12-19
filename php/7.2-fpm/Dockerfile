@@ -3,8 +3,7 @@ FROM  php:7.2-fpm
 MAINTAINER wolferhua
 
 # 环境安装
-RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
-    && apt update \
+RUN apt update \
     && apt upgrade -y \
     && pecl install redis \
     && ln -s /usr/lib/x86_64-linux-gnu/libssl.so  /usr/lib \
@@ -26,7 +25,8 @@ RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
             --with-jpeg-dir=/usr/include \
     && docker-php-ext-install mbstring zip gd pdo pdo_mysql opcache pcntl\
     && pecl install swoole\
-    && docker-php-ext-enable redis mongodb swoole pcntl \
+    && pecl install mcrypt-1.0.1\
+    && docker-php-ext-enable redis mongodb swoole pcntl mcrypt \
     && wget https://dl.laravel-china.org/composer.phar -O /usr/local/bin/composer \
     && chmod +x /usr/local/bin/composer
 #docker build -t wolferhua/php:7.2-fpm .
