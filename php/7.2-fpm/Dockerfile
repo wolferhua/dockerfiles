@@ -23,7 +23,7 @@ RUN apt update \
             --with-freetype-dir=/usr/include/freetype2 \
             --with-png-dir=/usr/include \
             --with-jpeg-dir=/usr/include \
-    && docker-php-ext-install mbstring zip gd pdo pdo_mysql opcache pcntl\
+    && docker-php-ext-install mbstring zip gd pdo pdo_mysql opcache pcntl mysqli \
     && pecl install swoole\
     && pecl install mcrypt-1.0.1\
     && docker-php-ext-enable redis mongodb swoole pcntl mcrypt \
