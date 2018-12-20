@@ -22,7 +22,7 @@ RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
             --with-freetype-dir=/usr/include/freetype2 \
             --with-png-dir=/usr/include \
             --with-jpeg-dir=/usr/include \
-    && docker-php-ext-install mbstring zip  gd pdo pdo_mysql mcrypt pcntl \
+    && docker-php-ext-install mbstring zip  gd pdo pdo_mysql mcrypt pcntl mysqli \
     && pecl install redis \
     && pecl install mcrypt \
     && pecl install swoole-1.10.5 \
