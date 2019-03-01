@@ -26,7 +26,7 @@ RUN apt update \
             --with-freetype-dir=/usr/include/freetype2 \
             --with-png-dir=/usr/include \
             --with-jpeg-dir=/usr/include \
-    && docker-php-ext-install gd pdo pdo_mysql opcache pcntl mysqli \
+    && docker-php-ext-install zip gd pdo pdo_mysql opcache pcntl mysqli \
     && pecl install redis \
     && pecl install mongodb \
     && pecl install swoole\
