@@ -18,6 +18,8 @@ RUN apt update \
         libssl-dev \
         libzip-dev \
         wget \
+        unzip \
+        git \
         zlib1g-dev -y \
     && docker-php-ext-configure gd \
             --enable-gd-native-ttf \
@@ -30,7 +32,8 @@ RUN apt update \
     && pecl install swoole\
     && docker-php-ext-enable redis mongodb swoole pcntl \
     && wget https://dl.laravel-china.org/composer.phar -O /usr/local/bin/composer \
-    && chmod +x /usr/local/bin/composer
+    && chmod +x /usr/local/bin/composer \
+    && composer config -g repo.packagist composer https://packagist.phpcomposer.com
 #docker build -t wolferhua/php:7.3-cli .
 
 
