@@ -2,7 +2,7 @@ FROM  php:7.3-cli
 
 MAINTAINER wolferhua
 
-COPY ./sources.list /etc/apt/sources.list
+#COPY ./sources.list /etc/apt/sources.list
 
 # 环境安装
 RUN apt update \
