@@ -3,8 +3,9 @@ FROM daocloud.io/php:5.6-fpm
 MAINTAINER wolferhua
 
 # 环境安装
-RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
-    && apt update \
+# RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
+#     && apt update \
+RUN apt update \
     && apt upgrade -y \
     && apt install  -y \
             libfreetype6-dev \
@@ -32,6 +33,7 @@ RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
     #&& echo "extension=php_pdo_mysql.so" > /usr/local/etc/php/conf.d/20-pdo_mysql.ini
     #&& docker-php-ext-enable redis
 
+RUN sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list 
 
 ENTRYPOINT ["docker-php-entrypoint"]
 
