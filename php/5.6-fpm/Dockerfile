@@ -23,11 +23,9 @@ RUN apt update \
             --with-png-dir=/usr/include \
             --with-jpeg-dir=/usr/include \
     && docker-php-ext-install mbstring zip  gd pdo pdo_mysql mcrypt pcntl mysql mysqli \
-    && pecl install redis \
-    && pecl install mcrypt \
+    && pecl install redis-4.3.0 \
     && pecl install swoole-1.10.5 \
     && echo "extension=redis.so" > /usr/local/etc/php/conf.d/20-redis.ini \
-    && echo "extension=mcrypt.so" > /usr/local/etc/php/conf.d/20-mcrypt.ini \
     && echo "extension=swoole.so" > /usr/local/etc/php/conf.d/20-swoole.ini
     #&& echo "extension=php_pdo_mysql.so" > /usr/local/etc/php/conf.d/20-pdo_mysql.ini
     #&& docker-php-ext-enable redis
