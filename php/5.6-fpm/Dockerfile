@@ -10,7 +10,6 @@ RUN apt update \
     && apt install  -y \
             libfreetype6-dev \
             libmcrypt-dev \
-            libpng12-dev \
             libjpeg-dev \
             libpng-dev \
             sendmail \
